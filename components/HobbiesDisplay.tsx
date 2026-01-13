@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { Globe, Heart, Star, Video, Music, Book } from 'lucide-react';
+import { Video, Music, Book } from 'lucide-react';
 
 export default function HobbiesDisplay() {
   return (
