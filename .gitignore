@@ -1,4 +1,7 @@
 node_modules/
+.trae
+*.ipynb
+*.sql
 .pnp
 .pnp.js
 .next/
