@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  devIndicators: false,
   images: {
     remotePatterns: [
       {
@@ -21,6 +22,10 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'aplikasi-online.net',
+      },
+      {
+        protocol: 'https',
+        hostname: 'media.licdn.com',
       },
     ],
   },
