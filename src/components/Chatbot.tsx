@@ -192,6 +192,9 @@ export default function Chatbot() {
     setMessages(prev => [...prev, newUserMessage]);
     setIsResponseLoading(true);
     
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 15000);
+
     try {
       const history = messages.map(msg => ({
         role: msg.sender === 'bot' ? 'ai' : 'human',
@@ -207,7 +210,8 @@ export default function Chatbot() {
           query: text,
           chat_history: history,
           session_id: sessionId
-        })
+        }),
+        signal: controller.signal
       });
 
       if (!res.ok) throw new Error('Failed to fetch response');
@@ -245,6 +249,7 @@ export default function Chatbot() {
         sender: 'bot'
       }]);
     } finally {
+      clearTimeout(timeoutId);
       setIsResponseLoading(false);
     }
   };
