@@ -199,7 +199,7 @@ export default function Chatbot() {
     setIsResponseLoading(true);
     
     const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 30000);
+    const timeoutId = setTimeout(() => controller.abort(), 60000);
 
     try {
       const history = messages.map(msg => ({
