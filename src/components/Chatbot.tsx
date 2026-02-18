@@ -189,11 +189,17 @@ export default function Chatbot() {
 
   const sendMessage = async (text: string) => {
     const newUserMessage = { id: Date.now(), text: text, sender: 'user' };
-    setMessages(prev => [...prev, newUserMessage]);
+    const botMsgId = Date.now() + 1;
+    
+    setMessages(prev => [...prev, newUserMessage, { 
+      id: botMsgId, 
+      text: '', 
+      sender: 'bot' 
+    }]);
     setIsResponseLoading(true);
     
     const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 15000);
+    const timeoutId = setTimeout(() => controller.abort(), 20000);
 
     try {
       const history = messages.map(msg => ({
@@ -220,14 +226,6 @@ export default function Chatbot() {
       const reader = res.body.getReader();
       const decoder = new TextDecoder();
       let botMessage = '';
-      const botMsgId = Date.now() + 1;
-
-      // Add initial empty bot message
-      setMessages(prev => [...prev, { 
-        id: botMsgId, 
-        text: '', 
-        sender: 'bot' 
-      }]);
 
       while (true) {
         const { done, value } = await reader.read();
@@ -243,11 +241,9 @@ export default function Chatbot() {
 
     } catch (error) {
       console.error(error);
-      setMessages(prev => [...prev, {
-        id: Date.now() + 1,
-        text: "Sorry, something went wrong. Please try again.",
-        sender: 'bot'
-      }]);
+      setMessages(prev => prev.map(msg => 
+        msg.id === botMsgId ? { ...msg, text: "Sorry, something went wrong. Please try again." } : msg
+      ));
     } finally {
       clearTimeout(timeoutId);
       setIsResponseLoading(false);
