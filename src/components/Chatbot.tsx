@@ -273,11 +273,11 @@ export default function Chatbot() {
             initial={{ opacity: 0, y: 20, scale: 0.9 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.9 }}
-            className={`mb-32 mr-4 bg-white p-4 rounded-2xl border border-black relative z-50 col-start-1 row-start-1 ${
-              isHovered ? 'w-fit' : 'w-[300px] max-w-[calc(100vw-2rem)]'
+            className={`mb-16 sm:mb-32 mr-4 bg-white p-4 rounded-2xl border border-black relative z-50 col-start-1 row-start-1 ${
+              isHovered ? 'w-fit' : 'w-[200px] sm:w-[300px] max-w-[calc(100vw-8rem)]'
             }`}
           >
-            <p className={`text-sm text-gray-600 text-left whitespace-pre-line ${isHovered ? '' : 'min-h-[3rem]'}`}>
+            <p className={`text-xs sm:text-sm text-gray-600 text-left whitespace-pre-line ${isHovered ? '' : 'min-h-[3rem]'}`}>
               {isHovered ? "So, what can I help you with ?" : displayedMessage.split('**').map((part, i) =>
                 i % 2 === 1 ? <span key={i} className="font-bold">{part}</span> : part
               )}
@@ -436,16 +436,31 @@ export default function Chatbot() {
         onClick={toggleChat}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
-        className="relative w-32 h-[230px] cursor-pointer focus:outline-none mr-6"
+        className="relative w-20 h-20 sm:w-32 sm:h-[230px] cursor-pointer focus:outline-none mr-2 sm:mr-6 mb-4 sm:mb-0"
       >
-        <Image 
-          src={currentGif} 
-          alt="Angkasa" 
-          fill 
-          className="object-cover drop-shadow-lg"
-          unoptimized
-        />
-
+        {/* Mobile: Circle style */}
+        <div className="sm:hidden relative w-full h-full rounded-full bg-white overflow-hidden border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+          <div className="absolute inset-0" style={{ top: '-25%', left:'5%', height: '140%' }}>
+            <Image 
+              src={currentGif} 
+              alt="Angkasa" 
+              fill 
+              className="object-cover object-top"
+              unoptimized
+            />
+          </div>
+        </div>
+        
+        {/* Desktop: Full character */}
+        <div className="hidden sm:block relative w-full h-full">
+          <Image 
+            src={currentGif} 
+            alt="Angkasa" 
+            fill 
+            className="object-cover drop-shadow-lg"
+            unoptimized
+          />
+        </div>
       </motion.button>
     </div>
   );
