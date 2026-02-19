@@ -71,11 +71,6 @@ export default function TestimonialCarousel() {
     return () => clearInterval(interval);
   }, [isPaused, currentIndex]);
 
-  const handleProfileClick = (e: React.MouseEvent, link: string) => {
-    e.stopPropagation(); // Prevent card click
-    window.open(link, "_blank");
-  };
-
   const handleCardClick = (link: string) => {
     window.open(link, "_blank");
   };
@@ -107,7 +102,7 @@ export default function TestimonialCarousel() {
 
   return (
     <div className="w-full max-w-4xl mx-auto py-12 px-4 relative">
-      <h2 className="text-3xl font-bold text-center text-gray-800 mb-8">
+      <h2 className="text-2xl md:text-3xl font-bold text-center text-gray-800 mb-8">
         Voices from Partners and Clients
       </h2>
 
@@ -130,7 +125,7 @@ export default function TestimonialCarousel() {
         </button>
 
         <div 
-          className="relative h-96 md:h-80 overflow-hidden"
+          className="relative h-80 md:h-80 overflow-hidden"
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
         >
@@ -146,9 +141,9 @@ export default function TestimonialCarousel() {
             className="absolute inset-0 flex items-center justify-center"
           >
             <div
-              className="bg-white p-6 rounded-2xl shadow-md border border-gray-100 transition-shadow duration-300 max-w-2xl w-full"
+              className="bg-white p-4 md:p-6 rounded-2xl shadow-md border border-gray-100 transition-shadow duration-300 w-[90%] md:w-full max-w-2xl mx-auto"
             >
-              <p className="text-gray-600 text-lg italic mb-6 line-clamp-5">
+              <p className="text-gray-600 text-xs sm:text-sm md:text-lg italic mb-4 md:mb-6 line-clamp-7 break-words overflow-hidden">
                 "{testimonials[currentIndex].text}"
               </p>
               
@@ -170,11 +165,11 @@ export default function TestimonialCarousel() {
                     <User className="w-6 h-6 text-gray-400" />
                   )}
                 </div>
-                <div>
-                  <h4 className="font-semibold text-gray-800">
+                <div className="flex-1 min-w-0">
+                  <h4 className="text-xs sm:text-sm md:text-base font-semibold text-gray-800 truncate">
                     {testimonials[currentIndex].name}
                   </h4>
-                  <p className="text-sm text-gray-500">
+                  <p className="text-xs md:text-sm text-gray-500 truncate">
                     {testimonials[currentIndex].role} @ {testimonials[currentIndex].company}
                   </p>
                 </div>

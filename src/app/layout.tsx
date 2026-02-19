@@ -40,8 +40,9 @@ export default function RootLayout({
           <main className="flex-grow pt-16 md:pt-20">
             {children}
           </main>
-          <footer className="py-8 text-center text-gray-500 text-sm">
-            © 2026 Salomo Hendrian Sudjono. Built with ❤️
+          <footer className="py-8 text-center text-gray-500 text-xs sm:text-sm">
+            © 2026 Salomo Hendrian Sudjono.<br className="sm:hidden" />
+            Built with ❤️
           </footer>
           <Chatbot />
         </PortfolioProvider>

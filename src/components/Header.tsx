@@ -31,9 +31,9 @@ export default function Header() {
     <>
       <header 
         className={cn(
-          "fixed z-[60] transition-all duration-500 ease-in-out",
+          "fixed z-[60] transition-all duration-500 ease-in-out md:bg-white/80 md:backdrop-blur-md",
           isScrolled && !isOpen
-            ? "top-4 right-4 md:right-auto md:left-1/2 md:-translate-x-1/2 w-fit md:w-[85%] lg:w-[75%] xl:w-[70%] max-w-7xl" 
+            ? "top-4 right-4 md:right-auto md:left-1/2 md:-translate-x-1/2 w-fit md:w-[85%] lg:w-[75%] xl:w-[70%] max-w-7xl md:rounded-full md:shadow-lg" 
             : "top-0 left-0 md:left-1/2 md:-translate-x-1/2 w-full"
         )}
       >

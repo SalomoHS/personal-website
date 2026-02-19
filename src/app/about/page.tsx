@@ -8,10 +8,10 @@ import Image from "next/image";
 
 export default function AboutPage() {
   return (
-    <div className="container mx-auto px-4 md:px-6 py-12 md:py-20">
+    <div className="container mx-auto px-4 md:px-6 py-4 sm:py-12 md:py-20">
       <div className="flex flex-col md:flex-row items-center gap-12 mb-20">
         <div className="w-full md:w-1/2">
-            <div className="relative w-full max-w-sm mx-auto">
+            <div className="relative w-full max-w-[200px] sm:max-w-sm mx-auto">
                 <div className="aspect-square relative rounded-3xl overflow-hidden bg-white shadow-[6px_6px_0_0_theme('colors.primary-pink')]">
                      <Image
                        src="https://gvjedbipogczjshlbjnz.supabase.co/storage/v1/object/public/Portfolio/photo-profile/photo_2025-10-01_09-22-11%20(2).jpg"
@@ -25,7 +25,7 @@ export default function AboutPage() {
         </div>
         
         <div className="w-full md:w-1/2">
-          <h1 className="text-4xl md:text-5xl font-bold text-text-dark mb-6">
+          <h1 className="text-4xl md:text-5xl font-bold text-text-dark mb-6 text-center md:text-left">
             Hi, I&apos;m <br /> <span className="text-primary-blue">Salomo Hendrian Sudjono</span>.
           </h1>
           <h2 className="text-2xl font-semibold text-gray-700 mb-6">

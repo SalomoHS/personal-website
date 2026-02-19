@@ -264,7 +264,7 @@ export default function Chatbot() {
   ];
 
   return (
-    <div className="fixed bottom-0 right-6 z-[70] flex flex-row items-end">
+    <div className="fixed bottom-10 sm:bottom-0 right-6 z-[70] flex flex-row items-end">
       <div className="grid grid-cols-1 items-end justify-items-end">
       {/* Welcome Message */}
       <AnimatePresence>
