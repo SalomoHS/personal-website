@@ -199,7 +199,7 @@ export default function Chatbot() {
     setIsResponseLoading(true);
     
     const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 60000);
+    const timeoutId = setTimeout(() => controller.abort(), 20000);
 
     try {
       const history = messages.map(msg => ({
@@ -264,7 +264,7 @@ export default function Chatbot() {
   ];
 
   return (
-    <div className="fixed bottom-0 right-6 z-50 flex flex-row items-end">
+    <div className="fixed bottom-0 right-6 z-[70] flex flex-row items-end">
       <div className="grid grid-cols-1 items-end justify-items-end">
       {/* Welcome Message */}
       <AnimatePresence>
@@ -273,7 +273,7 @@ export default function Chatbot() {
             initial={{ opacity: 0, y: 20, scale: 0.9 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.9 }}
-            className={`mb-16 sm:mb-32 mr-4 bg-white p-4 rounded-2xl border border-black relative z-50 col-start-1 row-start-1 ${
+            className={`mb-16 sm:mb-32 mr-4 bg-white p-4 rounded-2xl border border-black relative z-[60] col-start-1 row-start-1 ${
               isHovered ? 'w-fit' : 'w-[200px] sm:w-[300px] max-w-[calc(100vw-8rem)]'
             }`}
           >
@@ -295,7 +295,7 @@ export default function Chatbot() {
             initial={{ opacity: 0, x: 20, scale: 0.9 }}
             animate={{ opacity: 1, x: 0, scale: 1 }}
             exit={{ opacity: 0, x: 20, scale: 0.9 }}
-            className="fixed inset-0 z-[60] flex h-full w-full flex-col bg-white sm:relative sm:z-auto sm:mb-24 sm:mr-2 sm:h-auto sm:w-[420px] sm:rounded-[2rem] sm:border-4 sm:border-black sm:drop-shadow-xl sm:overflow-visible col-start-1 row-start-1"
+            className="fixed inset-0 z-[70] flex h-full w-full flex-col bg-white sm:relative sm:z-auto sm:mb-24 sm:mr-2 sm:h-auto sm:w-[420px] sm:rounded-[2rem] sm:border-4 sm:border-black sm:drop-shadow-xl sm:overflow-visible col-start-1 row-start-1"
           >
             {/* Comic Bubble Tail */}
             <svg 
